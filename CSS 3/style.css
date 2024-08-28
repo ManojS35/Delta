@@ -1,0 +1,81 @@
+.box{
+    height: 200px;
+    width: 500px;
+    background-color: aqua;
+    border: 5px solid black;
+    border-left: 5px dashed green;
+    /* border-bottom: 5px dotted white; */
+    /* border-radius: 20px; */
+    /* border-top-right-radius: 20px; */
+    /* border-radius: 10px 100px/120px; */
+    /* border-radius: 50% 20% / 10% 40%; */
+    padding: 20px 20px 20px 20px;
+    margin: 20px 0 20px 10px;
+}
+h1{
+    border: 5px dashed blueviolet;
+}
+button {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(241, 156, 28, 0.799);
+    margin: 0 0 20px 0;
+}
+
+.outer{
+    height: 200px;
+    width: 70px;
+    border: 2px solid black;
+}
+.inner{
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+#red{
+    background-color: red;
+}
+
+#yellow{
+    background-color: yellow;
+}
+
+#green{
+    background-color: green;
+}
+
+.ib{
+    height: 200px;
+    width: 200px;
+    background-color: blueviolet;
+    margin: 10px;
+    display: inline-block;
+}
+
+/* #third{
+    display: none;
+} */
+
+.out{
+    height: 400px;
+    width: 400px;
+    background-color: aquamarine;
+    font-size: 20px;
+}
+.inn{
+    height: 100px;
+    width: 100px;
+    background-color: bisque;
+    margin: 10%;
+    font-size: .5em;       /*Relative to parent's(outer) own font size*/
+    padding: 1em;   /*Relative to it's(inner) own font size*/
+}
+
+section div{
+    /* font-size: 2em; */ 
+    font-size: 2rem;  /*rem(Root em) -  Relative to root element(HTML) */
+}

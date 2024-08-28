@@ -1,0 +1,69 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+h3{
+    background-color: coral !important;
+}
+h1{
+    color: #b92b27;
+}
+#login{
+    border: none;
+    background-color:rgb(183, 240, 114);
+}
+#signup{
+    background-color: #b92b27;
+}
+.upvote{
+    background-color: aqua;
+}
+.upvote + .answer{
+    background-color: aquamarine;
+}
+.post a{                     /*descendent selector*/
+    text-decoration: none;
+}
+p+h3{                         /*sibling selector*/
+    text-decoration: underline;
+}
+h3{
+    background-color: aliceblue;
+}
+nav > ul > li > a {           /*child combinator*/
+    text-decoration: none;
+    color: blueviolet;
+}
+input[type="text"] {         /*attribute selector*/
+    color: red;
+}
+input[type="password"] {
+    color: rebeccapurple;
+}
+input[type] {
+    background-color: antiquewhite;
+}
+#signup:hover{                      /*pseudo class*/
+    background-color: #b92c276f;
+}
+#login:active{
+    background-color: aqua;
+}
+input[type="radio"]:checked + label {
+    color: red;
+    font-weight: bold;
+}
+div:nth-of-type(2n) {
+    background-color: burlywood;
+}
+div:nth-last-of-type(4) {
+    background-color: cadetblue;
+}
+h1::first-letter{              /*pseudo element*/
+    color: green;
+}
+.extra p::first-line{
+    color: #b92b27;
+}
+p::selection{
+    background-color: rgb(255, 255, 134);
+}

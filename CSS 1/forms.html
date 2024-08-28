@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <form action="/action.php">
+        <!-- <label>
+            Username
+            <input type="text" placeholder="enter username">
+        </label>
+        <br>
+        <label>
+            Password
+            <input type="password" placeholder="enter password">
+        </label> -->
+
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="enter username" name="username">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="enter password" name="password">
+        </div>
+        <div>
+            <input type="checkbox" name="age" id="age" checked>
+            <label for="age">I am 18+</label>
+        </div>
+        <div>
+            <input type="radio" name="sex" id="male" value="male">
+            <label for="sex">Male</label>
+            <input type="radio" name="sex" id="female" value="female">
+            <label for="sex">Female</label>
+        </div>
+        <div>
+            Choose your Profession
+            <select name="profession" id="profession">
+                <option value="select">Select</option>
+                <option value="stu" selected>Student</option>
+                <option value="dev">Developer</option>
+            </select>
+        </div>
+        <div>
+            <label for="volume">Select your Volume</label>
+            <input type="range" name="volume" id="volume" min="0" max="100" step="10">
+        </div>
+        <div>
+            <label for="feedback">Please provide your feedback</label>
+            <br>
+            <textarea name="feedback" id="feedback" placeholder="Write your feedback here" rows="10"></textarea>
+        </div>
+        <!-- <div>
+            <label for="age">Password</label>
+            <input type="number" id="age" placeholder="enter age">
+        </div> -->
+        <button type="submit">Submit</button> <!--Submit-->
+        <!-- <button type="button">Hello</button>   do something
+        <button type="reset">Reset</button> -->
+        <!-- <input type="button" value="Click me">
+        <input type="submit"> -->
+    </form>
+    <hr>
+    <form action="https://www.google.com/search" target="_blank">
+        <input type="text" name="q" placeholder="search in google">
+        <button>search</button>
+    </form>
+</body>
+</html>
