@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Bootstrap Demo</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis inventore quaerat quas enim architecto,
+            minus quibusdam odio quo eius dolor cumque nemo distinctio exercitationem consequatur! Placeat adipisci sint
+            veniam perferendis?
+            Minima laudantium aspernatur est reprehenderit aliquam quae expedita. Aliquid asperiores quod laudantium
+            quaerat enim? Eos animi a nihil, quisquam enim architecto beatae unde ex? Voluptatum voluptatem hic sit
+            voluptate veniam.
+            Ut illum laudantium nesciunt tempore sunt sint perspiciatis, labore facilis. Eum perferendis doloremque
+            error libero tempora magnam repellendus labore laboriosam. Quidem ipsum dicta iure itaque architecto aperiam
+            cum atque iste?
+            Excepturi, accusantium. Magni molestiae corporis ipsum suscipit consectetur vitae quasi quod quae, tenetur,
+            ipsa incidunt iure, ab voluptas soluta? Voluptates perferendis autem sequi, molestias ea odit quo eaque
+            tempore deserunt!
+            Ipsam, at! Vel ipsum non quis optio atque pariatur dicta rerum necessitatibus, ipsa totam voluptatibus quod
+            at nam similique beatae fuga. Qui, aperiam iusto sint sed quod recusandae molestiae perferendis.</p>
+        <!-- <button>Click me!</button> -->
+        <button class="btn rounded-pill btn-success">Click me!</button>
+        <button class="btn btn-outline-primary">Click Me!</button>
+        <button class="btn btn-outline-warning btn-lg" disabled>Click Me!</button>
+        <a href="#" class="btn btn-dark">Google</a>
+        <br>
+        <h3>Mails<span class="badge rounded-pill bg-secondary">10+</span></h3>
+        <br>
+        <button class="btn btn-primary btn-lg">Mails <span class="badge bg-secondary">10+</span> </button>
+        <br><br>
+        <button type="button" class="btn btn-primary position-relative">
+            Inbox
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                99+
+                <span class="visually-hidden">unread messages</span>
+            </span>
+        </button>
+        <br><br>
+        <button type="button" class="btn btn-primary position-relative">
+            Profile
+            <span
+                class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                <span class="visually-hidden">New alerts</span>
+            </span>
+        </button>
+        <br><br>
+        <div class="alert alert-danger alert-dismissible fade show">
+            Failed
+            <button class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- button group -->
+         <div class="btn btn-group">
+             <button class="btn btn-secondary">Left</button>
+             <button class="btn btn-success">Middle</button>
+             <button class="btn btn-secondary">Right</button>
+         </div>
+    </div>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
