@@ -1,0 +1,26 @@
+body {
+    padding: 20px;
+    display: inline-block;
+}
+
+.new {
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 157, 0);
+    opacity: 0.85;
+    color: white;
+}
+.new:hover {
+    opacity: 1;
+    scale: 1.05;
+}
+
+.chat {
+    background-color: aqua;
+    padding: 10px;
+}
+.msg {
+    background-color:antiquewhite;
+    padding: 8px;
+}

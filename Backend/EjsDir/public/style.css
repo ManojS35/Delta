@@ -1,0 +1,11 @@
+body{
+    background-color: pink;
+}
+img{
+    height: 200px;
+    width: 200px;
+}
+.posts{
+    display: flex;
+    justify-content:space-evenly;
+}
