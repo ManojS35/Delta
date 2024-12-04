@@ -1,0 +1,39 @@
+const mongoose = require('mongoose');
+const {Schema} = mongoose;
+
+main()
+.then(() => console.log("connection successful"))
+.catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/relationships');
+}
+
+const userSchema = new Schema({
+    username : String,
+    addresses : [{
+        _id : false,                 //if i don't want any different id for different addresses
+        location : String,
+        city : String,
+    },],
+});
+
+const User = mongoose.model('user', userSchema);
+
+const addUsers = async () => {
+    let user1 = new User({
+        username : 'sherlockholmes',
+        addresses : [
+            {
+                location : '221B WallStreet',
+                city : 'London',
+            },
+        ],
+    });
+
+    user1.addresses.push({location : 'P32 WallStreet', city : "London"});
+    let result = await user1.save();
+    console.log(result);
+};
+
+addUsers();
