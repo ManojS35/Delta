@@ -1,0 +1,7 @@
+.weatherData {
+    display: flex;
+    justify-content: center;
+}
+#alert {
+    width: 300px;
+}

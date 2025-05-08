@@ -1,8 +1,18 @@
 const express = require('express');
 const app = express();
 const ExpressError = require('./ExpressError')
+const fs = require('fs');
 
 const port = 8080;
+
+app.use(express.urlencoded({extended:true}));
+
+app.use((req, res, next) => {
+    fs.appendFile("log.txt", `\n${Date.now()}: ${req.method}: ${req.path}\n`, 
+    (err,data) =>{
+        next();
+    });
+})
 
 // app.use((req, res, next) => {
 //     console.log('Time : ', Date.now());
@@ -44,8 +54,10 @@ app.get('/err', (req, res) => {
     abcd = abcd;
 });
 app.use((err, req, res, next) => {
-    console.error(err.message)
-    res.status(err.status).send(err.message);
+    // console.error(err.message)
+    let {status = 500, message = "Some Error Occured"} = err;
+    res.status(status).send(message);
+    // res.send(err);
 });
 
 

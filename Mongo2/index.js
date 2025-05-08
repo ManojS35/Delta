@@ -20,7 +20,7 @@ main().then(() => {
     .catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+    await mongoose.connect('mongodb://127.0.0.1:27017/fakewhatsapp');
 }
 
 // let chat1 = new Chat({
@@ -42,49 +42,45 @@ app.get('/chats', async (req, res) => {
 });
 
 //New Route
-app.get('/chats/new', (req, res) => {
-    throw new ExpressError();
+app.get('/chats/new', (req, res, err) => {
+    // if(err) throw new ExpressError(404, 'Page not found!');
     res.render('new.ejs');
 });
 
 //Create Route
-app.post('/chats', (req, res) => {
-    let { from, msg, to } = req.body;
-    let newChat = new Chat({
-        from: from,
-        to: to,
-        msg: msg,
-        createdAt: new Date()
-    });
-    newChat.save()
-        .then((res) => {   //save is a asycnchronous process -> so make it async or if then is there means also okay
-            console.log('new chat saved');
-        }).catch((err) => {
-            console.log(err);
+app.post('/chats', asyncWrap( async (req, res, next) => {
+        let { from, msg, to } = req.body;
+        let newChat = new Chat({
+            from: from,
+            to: to,
+            msg: msg,
+            createdAt: new Date()
         });
+        await newChat.save()
     res.redirect('/chats');
-});
+}));
+
+function asyncWrap(fn) {
+    return function(req, res, next) {
+        fn(req, res, next).catch((err) => next(err)); 
+    }
+}
 
 //NEW - Show Route
-app.get('/chats/:id', async (req, res, next) => {
+app.get('/chats/:id', asyncWrap(async (req, res, next) => {
     let { id } = req.params;
     
     // Check if ID is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return next(new ExpressError(400, 'Invalid chat ID format'));
     }
-    try {
-        let chat = await Chat.findById(id);
-        if (!chat) {
-            throw new ExpressError(404, 'Chat not found');
-        }
-        res.render('edit.ejs', { chat });
+    let chat = await Chat.findById(id);
+    if (!chat) {
+        next(new ExpressError(404, 'Chat not found'));
     }
-    catch (err) {
-        next(err);
-    }
+    res.render('edit.ejs', { chat });
 
-});
+}));
 
 //Error handling Middleware
 app.use((err, req, res, next) => {
@@ -94,29 +90,29 @@ app.use((err, req, res, next) => {
 
 
 //Edit Route
-app.get('/chats/:id/edit', async (req, res) => {
-    let { id } = req.params;
-    let chat = await Chat.findById(id);
-    console.log(chat);
-    res.render('edit.ejs', { chat })
-});
+app.get('/chats/:id/edit', asyncWrap(async (req, res) => {
+        let { id } = req.params;
+        let chat = await Chat.findById(id);
+        // console.log(chat);
+        res.render('edit.ejs', { chat })
+}));
 
 //Update Route
-app.put('/chats/:id', async (req, res) => {
+app.put('/chats/:id', asyncWrap(async (req, res) => {
     let { id } = req.params;
     let { msg: newMsg } = req.body;
     let upadtedChat = await Chat.findByIdAndUpdate(id, { msg: newMsg }, { runValidators: true, new: true });
-    console.log(upadtedChat);
+    // console.log(upadtedChat);
     res.redirect('/chats');
-});
+}));
 
 //Destroy Route
-app.delete('/chats/:id', async (req, res) => {
+app.delete('/chats/:id', asyncWrap(async (req, res) => {
     let { id } = req.params;
     let deletedChat = await Chat.findByIdAndDelete(id);
-    console.log(deletedChat);
+    // console.log(deletedChat);
     res.redirect('/chats');
-})
+}))
 
 app.get("/", (req, res) => {
     res.send("root is working!");
